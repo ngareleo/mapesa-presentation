@@ -1,0 +1,3 @@
+[submodule "cs-main"]
+	path = cs-main
+	url = https://github.com/ngareleo/finance-main.git
