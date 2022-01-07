@@ -10,7 +10,7 @@ It includes:
 
 Retreives the receipts from the SMS Manager and sends a POST request to the node application
 
-### Node Application
+### [Node Application](https://github.com/ngareleo/mapesa-api)
 
 Accepts my SMS messages, parses them and extracts relevant information and stores them in a MongoDB
 
