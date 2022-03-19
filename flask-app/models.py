@@ -5,8 +5,8 @@ from datetime import datetime
 class TransactionManager:
 
     def __init__(self, u_id):
-        URL = "mongodb://127.0.0.1:27017/CallSaul"
-        self._db_connection = MongoClient(URL)['CallSaul']
+        url = "mongodb://127.0.0.1:27017/CallSaul"
+        self._db_connection = MongoClient(url)['CallSaul']
         self._t_table = self._db_connection['transactions']
         self._user = u_id
 
@@ -14,10 +14,10 @@ class TransactionManager:
         query = {
             "user_id": self._user
         }
-        latest_t = self._t_table.find(query).sort("dateTime", -1)
-        if latest_t.count() != 0:
+        latest_transactions = [_ for _ in self._t_table.find(query).sort("dateTime", -1)]
+        if len(latest_transactions) != 0:
             return {
-                'balance': latest_t[0].get('balance')
+                'balance': latest_transactions[0].get('balance')
             }
         return {
             'balance': -1
@@ -28,8 +28,8 @@ class TransactionManager:
         query = {
             "user_id": self._user
         }
-        latest_ts = self._t_table.find(query).sort('dateTime', -1).limit(8)
-        data = [t for t in latest_ts]
+        latest_transactions = self._t_table.find(query).sort('dateTime', -1).limit(8)
+        data = [t for t in latest_transactions]
         # safely extract the important information
         values = self.clean_data(data)
         return {'data': values}
@@ -40,7 +40,6 @@ class TransactionManager:
         now = datetime.now()
         t_month = now.month
         t_year = now.year
-
         # get all the transactions this month
         query = {
             "dateTime": {
@@ -51,9 +50,7 @@ class TransactionManager:
         data = [t for t in transactions]
         # safely extract the important information
         values = self.clean_data(data)
-
         # we look for income, spending, transaction_fees
-
         monthly_i = self.process_transactions(values)
         return {
             'details': {
@@ -87,7 +84,7 @@ class TransactionManager:
             elif t_type == 'Lipa na MPESA' or t_type == 'Airtime':
                 t_amount = transaction.get('transaction_amount')
                 details['spent'] += t_amount
-            elif t_type == 'Recieve Money' or t_type == 'Deposit':
+            elif t_type == 'Receive Money' or t_type == 'Deposit':
                 t_amount = transaction.get('transaction_amount')
                 details['income'] += t_amount
 
@@ -95,11 +92,10 @@ class TransactionManager:
 
     @staticmethod
     def clean_data(transactions: list) -> list:
-        t_s = [t for t in transactions]
+        list_transactions = [transaction for transaction in transactions]
         values = []
         date_today = datetime.now()
-
-        for item in t_s:
+        for item in list_transactions:
             t_map = {
 
                 "balance": item.get("balance"),
@@ -117,45 +113,41 @@ class TransactionManager:
             values.append(t_map)
         return values
 
-    def get_monthly_data(self, lim):
+    def get_monthly_data(self, limit):
         # for last 7 months, each month we go through the db
+
+        # getting amount spent and earned in the last limit number of months
+
         monthly_data = []
-
         today = datetime.now()
-        this_y, this_m = today.year, today.month
-        req = 0
-        all_data = []
+        _temp_y, _temp_d = today.year, today.month
+        counter: int = 0
+        all_data: list = []
         p_date = today
-        while this_y > 0:
-            while this_m >= 1:
-
+        while _temp_y > 0:
+            while _temp_d >= 1:
                 # we get the transactions here
-                date = datetime(this_y, this_m, 1)
+                date = datetime(_temp_y, _temp_d, 1)
                 query = {
                     '$and': [{"dateTime": {"$gte": date}}, {"dateTime": {"$lte": p_date}}]
                 }
-
-                m_ts = self._t_table.find(query)
-                ts = [m_t for m_t in m_ts]
-
-                m_data = self.process_transactions(ts)
-                month = {
-                    'label': {
-                        "year": this_y,
-                        "month": this_m
-                    },
-                    'data': m_data
+                monthly_transactions = self._t_table.find(query)
+                all_transactions = [transaction for transaction in monthly_transactions]
+                monthly_data = self.process_transactions(all_transactions)
+                this_month = {
+                    'label': {"year": _temp_y, "month": _temp_d},
+                    'data': monthly_data
                 }
-                all_data.append(month)
-                if req == lim:
+                all_data.append(this_month)
+                if counter == limit:
                     return all_data
 
                 p_date = date
-                this_m -= 1
-                req += 1
-            if this_m == 0:
-                this_m = 12
-            this_y -= 1
+                _temp_d -= 1
+                counter += 1
+            if _temp_d == 0:
+                _temp_d = 12
+            _temp_y -= 1
 
 
 
