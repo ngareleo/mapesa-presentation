@@ -1,8 +1,4 @@
-"""
-This module holds the FLASK application
-"""
 import json
-
 from flask import Flask, request
 from models import TransactionManager
 from json import dumps
