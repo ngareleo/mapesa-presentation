@@ -93,6 +93,7 @@
             android:inputType="text"
             android:layout_height="60dp"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1.CallSaul"
+            android:textColor="@color/black"
             android:hint="@string/username" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -120,6 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:inputType="textPassword"
+            android:textColor="@color/black"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1.CallSaul"
             android:hint="@string/password" />
 
