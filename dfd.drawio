@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net" modified="2022-08-28T17:29:17.386Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36" etag="K0KaTJpdAWf9EPgGRtCl" version="20.2.7" type="github">
+  <diagram id="jcJcA7cQ4BSM7aTr6nIa" name="Page-1">
+    <mxGraphModel dx="2381" dy="994" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="egxkzBGei7gcssGLEZHz-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.012;entryY=0.688;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="egxkzBGei7gcssGLEZHz-1" target="egxkzBGei7gcssGLEZHz-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="630" y="300" />
+              <mxPoint x="260" y="300" />
+              <mxPoint x="260" y="297" />
+              <mxPoint x="251" y="297" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="egxkzBGei7gcssGLEZHz-6" value="messages + authorization token" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="egxkzBGei7gcssGLEZHz-5" vertex="1" connectable="0">
+          <mxGeometry x="0.1169" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="egxkzBGei7gcssGLEZHz-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="egxkzBGei7gcssGLEZHz-1" target="egxkzBGei7gcssGLEZHz-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="egxkzBGei7gcssGLEZHz-12" value="Auth token request" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="egxkzBGei7gcssGLEZHz-11" vertex="1" connectable="0">
+          <mxGeometry x="0.0804" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="egxkzBGei7gcssGLEZHz-1" value="Mobile Application" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="570" y="50" width="120" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="egxkzBGei7gcssGLEZHz-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="egxkzBGei7gcssGLEZHz-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="egxkzBGei7gcssGLEZHz-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="egxkzBGei7gcssGLEZHz-2" target="egxkzBGei7gcssGLEZHz-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="110" y="150" />
+              <mxPoint x="110" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="egxkzBGei7gcssGLEZHz-10" value="confirmation" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="egxkzBGei7gcssGLEZHz-9" vertex="1" connectable="0">
+          <mxGeometry x="-0.0968" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="egxkzBGei7gcssGLEZHz-2" value="Firebase Authentication and Authorization service" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="130" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="egxkzBGei7gcssGLEZHz-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="egxkzBGei7gcssGLEZHz-4" target="egxkzBGei7gcssGLEZHz-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="egxkzBGei7gcssGLEZHz-8" value="authorization token" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="egxkzBGei7gcssGLEZHz-7" vertex="1" connectable="0">
+          <mxGeometry x="-0.1631" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="egxkzBGei7gcssGLEZHz-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.048;entryY=0.73;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="egxkzBGei7gcssGLEZHz-4" target="egxkzBGei7gcssGLEZHz-13" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="340" />
+              <mxPoint x="105" y="340" />
+              <mxPoint x="105" y="338" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="egxkzBGei7gcssGLEZHz-15" value="transaction data" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="egxkzBGei7gcssGLEZHz-14" vertex="1" connectable="0">
+          <mxGeometry x="0.3094" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="egxkzBGei7gcssGLEZHz-4" value="Message upload service" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="130" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="egxkzBGei7gcssGLEZHz-13" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+          <mxGeometry x="-60" y="280" width="60" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
