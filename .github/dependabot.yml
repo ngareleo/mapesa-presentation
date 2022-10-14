@@ -15,3 +15,9 @@ updates:
     directory: "/mapesa-py-data-api" 
     schedule:
       interval: "daily"
+
+updates:
+  - package-ecosystem: "gradle" 
+    directory: "/mapesa-android-app-java" 
+    schedule:
+      interval: "daily"
