@@ -1,0 +1,131 @@
+link(rel="stylesheet", href="/stylesheets/index.css")
+div.transactions.main-container
+  div.search-bar-container
+    div.search-bar
+      input#search-bar(type="text", name="search", placeholder="Search", autocomplete="off")
+      div.img-container
+        img(src="/static/Input Field-Default-search.svg", alt="")
+  div.center-btm-t-container
+    div.center-ts-container
+      div.ts-table-container
+        div.ts-container-header
+          div.ts-tab-switch
+            div.tabs-container
+              div.tabs-content
+                div.tab-entry.active
+                  p#tab-titleAll Transactions
+                  div.result-count
+                    p#tab-results 20
+                div.tab-entry.inactive
+                  p#tab-title Daily Figures
+                  div.result-count
+                    p#tab-results 20
+        div.ts-main-content
+          div.ts-table-content
+            div.ts-table-info
+              div.table-info-content
+                p#table-info Showing result 101 - 200
+            div.a-ts-table-content
+              div.ts-table-header
+                div.ts-col-select
+                  div.ts-header-col-container
+                    input#select-all(type="checkbox", name="select-all")
+                div.ts-col-ts-code
+                  div.ts-header-col-container
+                    p#ts-header-col-ts-code-label Transaction Code
+                    div.img-container
+                      img#selector-icon(src="/static/selector.svg")
+                div.ts-col-subject
+                  div.ts-header-col-container
+                    p#ts-header-col-subject-label Subject
+                    div.img-container
+                      img#selector-icon(src="/static/selector.svg")
+                div.ts-col-datetime
+                  div.ts-header-col-container
+                    p#ts-header-col-datetime-label Date & Time
+                    div.img-container
+                      img#selector-icon(src="/static/selector.svg")
+                div.ts-col-type
+                  div.ts-header-col-container
+                    p#ts-header-col-type-label Transaction Type
+                    div.img-container
+                      img#selector-icon(src="/static/selector.svg")
+                div.ts-col-amount
+                  div.ts-header-col-container
+                    p#ts-header-col-subject-amount Amount
+                    div.img-container
+                      img#selector-icon(src="/static/selector.svg")
+                div.ts-col-trans-amount
+                  div.ts-header-col-container
+                    p#ts-header-col-ts-amount Transaction Amount
+                    div.img-container
+                      img.selector-icon(src="/static/selector.svg")
+                div.ts-col-dropdown
+                  div.ts-header-col-container
+              div.ts-table-rows-container
+                div.ts-table-row
+                  div.ts-row-content
+                    div.ts-col-select
+                      div.ts-row-item-select
+                        input.item-select(type="checkbox", name="item-select")
+                    div.ts-col-ts-code
+                      div.ts-row-item-ts-code
+                        p#ts-item-ts-code-lbl PL17G610BX
+                    div.ts-col-subject
+                      div.ts-row-item-subject
+                        p#ts-item-subject-lbl JUMIA
+                    div.ts-col-datetime
+                      div.ts-row-item-datetime
+                        p#ts-item-datetime-lbl 2021-12-01
+                    div.ts-col-type
+                      div.ts-row-item-type
+                        div.ts-item-type-container
+                          p#ts-item-type-lbl Recieve Money
+                    div.ts-col-amount
+                      div.ts-row-item-amount
+                        p#ts-item-amount-lbl 2438.34
+                    div.ts-col-trans-amount
+                      div.ts-row-item-ts-amount
+                        p#ts-item-ts-amount-lbl 0.00
+                    div.ts-col-dropdown
+                      div.img-container
+                        img#dropdown-icon(src="/static/Dropdown-Default-_Helper-chevron-down.svg")
+                  div.ts-row-info-container
+                    div.ts-row-info-item
+                      p#ts-row-info-item-lbl Phone Number 
+                      p#ts-row-info-item-value 4018415
+          div.ts-table-page-selector
+            div.ts-ps-container
+              div.ts-ps-item.prev
+                div.img-container
+                  img#prev-button(src="/static/Navigation-Pagination-_Helper-chevron-left.svg")
+              div.ts-ps-item.prev-pg
+                div.ps-pg-item-val
+                  p#ps-pg-value 1
+              div.ts-ps-item.current
+                div.ps-pg-item-val
+                  p#ps-pg-value 2
+              div.ts-ps-item.next-pg
+                div.ps-pg-item-val
+                  p#ps-pg-value 3
+              div.ts-ps-item.other-pgs
+                div.ps-pg-item-val
+                  p#ps-pg-value ...
+              div.ts-ps-item.last
+                div.ps-pg-item-val
+                  p#ps-pg-value 8 
+              div.ts-ps-item.next
+                div.img-container
+                  img#next-button(src="/static/Navigation-Pagination-_Helper-chevron-right.svg")
+    div.side-f-container
+script.
+  let searchBar = document.querySelector("#search-bar");
+  searchBar.addEventListener("focus", (event) => {
+    document.querySelector(".search-bar").style.border =
+      "1px solid #2E65F3";
+  });
+
+  searchBar.addEventListener("blur", (event) => {
+    document.querySelector(".search-bar").style.border =
+      "1px solid #e0e2e7";
+  });

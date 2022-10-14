@@ -1,0 +1,66 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge") 
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="preconnect", href="https://fonts.googleapis.com") 
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap", rel="stylesheet")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js")
+    title Welcome
+  body
+    div.loader.loading
+      p#square
+    div.content-container.unloaded
+      block content 
+
+  style.
+    .loader.loading {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color: pink;
+    }
+    #square {
+      width: 32px;
+      height: 32px;
+      background-color: gray;
+      animation: rotate 2s infinite alternate-reverse;
+    }
+
+    @keyframes rotate {
+      0%{
+        transform: rotate(0deg);
+      }
+      100%{
+        transform-origin: bottom right;
+        transform: rotate(90deg);
+      }
+    }
+    .loader {
+      display: none;
+    }
+  
+    .content-container {  
+      display: block;
+    }
+
+    .content-container.unloaded {
+      display: none;
+    }
+
+    
+
+
+  script.
+    window.onload = () => {
+      console.log('Loaded')
+      document.querySelector('.loader.loading').classList.remove('loading')
+      document.querySelector('.content-container.unloaded').classList.remove('unloaded')
+      
+    }
+
+

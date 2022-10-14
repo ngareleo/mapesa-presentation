@@ -1,0 +1,39 @@
+extends main
+
+
+block content 
+  link(rel="stylesheet", href="/stylesheets/login.css")
+  div.main-content-container(ng-app="LoginModule", ng-controller="LoginCtrl")
+    div.login-img-container
+    div.login-page-content
+      div.flash-message(ng-class="{show: showFlash}")
+        p#flashmessage(ng-bind="errorMessage")
+        p#closebutton(ng-click="closeFlash()") &times;
+      div.logo-container
+        div.img-container
+          img(src="/static/Navigation-Primary-finance-logo.svg", alt="Finance")
+        div.img-container
+          img(src="/static/menu-alt-3.svg", alt="Menu")
+      div.page-content
+        div.page-header
+          div.page-greeting
+            p#welcome-message Welcome back
+          div.page-login-header
+            p#login-message Login to your account
+
+        //<!--Login form-->
+        div.form-container
+          form.loginForm(name="loginForm", ng-submit="submitForm()")
+            div.username-field
+              label(for="username-field") Username
+              input#username-field(type="text", name="username", autocomplete="off", ng-change="changeUsername()", ng-model="userUsername", ng-minlength="4", required)
+            div.password-field
+              label(for="password-field") Password
+              input#password-field(type="password", name="password", ng-model="userPassword", ng-change="passwordChange()", ng-minlength="4", required)
+              div.password-helpers
+                div.rem-me
+                  input#remember-me(type="checkbox", name="remember", value="Remember me")
+                  label(for="password-field") Remember me
+                a#forgot-pass-link(href="/forgot") Forgot password?
+            input#login-button(type="submit", value="Log in", ng-disabled="loginForm.$invalid")
+  script(src="/javascripts/login.angular.js")

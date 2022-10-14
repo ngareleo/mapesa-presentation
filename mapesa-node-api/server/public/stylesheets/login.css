@@ -1,0 +1,297 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+p,
+a,
+label,
+canvas {
+  font-family: 'Inter', sans-serif;
+}
+
+canvas {
+  width: 1000px !important;
+  height: 400px !important;
+}
+
+.main-content-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.main-content-container.unloaded {
+  display: none;
+}
+
+.flash-message {
+  width: 90%;
+  height: 30px;
+  padding: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffdbdb;
+}
+
+.flash-message.show {
+  display: none;
+}
+
+#flashmessage {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  /* Primary / Blue */
+
+  color: #f32d2d;
+}
+
+#closebutton {
+  color: #f32d2d;
+}
+
+.login-img-container {
+  width: 60%;
+  height: 100vh;
+  background: url(/static/sergey-pesterev-JV78PVf3gGI-unsplash.jpg);
+  background-size: cover;
+}
+
+.login-page-content {
+  height: 100vh;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.logo-container {
+  display: none;
+  height: 50px;
+  width: 90%;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0%;
+}
+.page-content {
+  position: absolute;
+  top: 20%;
+}
+
+.page-header {
+  width: fit-content;
+  height: fit-content;
+}
+
+#welcome-message {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  /* 800 */
+
+  color: #2d3748;
+  margin: 0;
+}
+
+#login-message {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 35px;
+
+  /* 900 */
+
+  color: #1a202c;
+  margin: 0;
+}
+
+.form-container {
+  width: 100%;
+  height: fit-content;
+  margin-top: 20px;
+}
+
+.username-field,
+.password-field {
+  width: 100%;
+  height: fit-content;
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#username-field,
+#password-field {
+  height: 50px;
+  width: 350px;
+
+  padding-left: 10px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  /* Secondary / Gray 4 */
+
+  color: #6f727a;
+
+  border: 1px solid #e0e2e7;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.loginForm.ng-pristine #username-field,
+.loginForm.ng-pristine #password-field {
+  border: 1px solid #e0e2e7;
+}
+
+#username-field.ng-invalid,
+#password-field.ng-invalid {
+  border: 2px solid #f32d2d;
+}
+
+#username-field.ng-valid,
+#password-field.ng-valid {
+  border: 2px solid #249f5d;
+}
+
+#login-button {
+  height: 50px;
+  width: 350px;
+  background: #2e65f3;
+  border: none;
+
+  font-family: 'Inter', sans-serif;
+
+  /* Primary / Blue */
+
+  background: #2e65f3;
+  border-radius: 8px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  /* Primary/White */
+
+  color: #ffffff;
+}
+
+#login-button:disabled {
+  /* Primary / Blue */
+
+  background: #2e65f3;
+  opacity: 0.5;
+}
+
+label {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  font-family: 'Inter', sans-serif;
+  /* identical to box height */
+
+  /* 700 */
+  margin: 5px 0px;
+  color: #4a5568;
+}
+
+.password-helpers {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 10px 0px;
+}
+
+.rem-me {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+#remember-me {
+  margin-right: 4px;
+}
+
+#forgot-pass-link {
+  width: fit-content;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+
+  /* 800 */
+
+  color: #2c5282;
+}
+
+.signup-link-container {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  bottom: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.signup-link-container p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 19px;
+  /* identical to box height */
+
+  color: #616161;
+}
+
+#signup-link {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 19px;
+  /* identical to box height */
+
+  /* 700 */
+
+  color: #2b6cb0;
+}
+
+@media screen and (max-width: 900px) {
+  .login-img-container {
+    display: none;
+  }
+
+  .logo-container {
+    width: 90vw;
+    display: flex;
+  }
+}

@@ -1,0 +1,427 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+
+p,
+input,
+img {
+  font-family: "Inter", sans-serif;
+}
+
+.img-container {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: #e9e9ea;
+}
+
+.transactions.main-container {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-bar-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.search-bar {
+  width: 450px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  /* Primary/White */
+
+  background: #ffffff;
+  /* Secondary/Gray 2 */
+
+  border: 1px solid #e0e2e7;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+#search-bar {
+  height: 30px;
+  width: 90%;
+  border: none;
+  font-family: "Inter", sans-serif;
+  color: #6f727a;
+  font-size: 16px;
+}
+
+#search-bar::placeholder {
+  font-size: 16px;
+  text-align: start;
+}
+
+#search-bar-container:focus ~ #se {
+  border: 1px solid #2e65f3;
+}
+
+.center-ts-container {
+  width: 60%;
+  height: 100%;
+  padding: 20px;
+}
+
+.ts-table-container {
+  width: 100%;
+  height: 100%;
+}
+
+.ts-container-header {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.ts-tab-switch {
+  width: 50%;
+  height: fit-content;
+  margin: 10px;
+}
+
+.tabs-container,
+.tabs-content {
+  width: 100%;
+  height: 100%;
+}
+
+.tabs-content {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.tabs-content div {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 10px;
+  padding: 5px 16px;
+}
+
+.tabs-content div p {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.tab-entry.active {
+  border-bottom: 4px solid #2e65f3;
+}
+
+.tab-entry.active p {
+  color: #2e65f3;
+}
+
+.tab-entry.inactive p {
+  color: #6f727a;
+}
+
+.ts-filter-pills-container {
+  width: 100%;
+  height: fit-content;
+  margin: 10px;
+}
+
+.pills-container-content {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.pill-entry {
+  width: fit-content;
+  height: fit-content;
+  background: #e0e2e7;
+  /* Secondary/Gray 2 */
+
+  border: 1px solid #e0e2e7;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.pill-entry-content {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.pill-entry-content p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 167% */
+
+  /* Primary/Black */
+
+  color: #232325;
+}
+
+#pill-name {
+  margin-right: 10px;
+}
+
+.ts-main-content {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ts-table-content {
+  display: 100%;
+  width: 100%;
+  height: fit-content;
+}
+
+.ts-table-info {
+  width: 300px;
+  height: 30px;
+}
+
+.table-info-content p {
+  color: #ababab;
+  padding-left: 20px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 24px;
+}
+
+.a-ts-table-content {
+  width: 100%;
+  height: fit-content;
+  border: 1px solid #e0e2e7;
+  box-sizing: border-box;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ts-table-header {
+  background: #f7f7f9;
+  width: 100%;
+  height: 50px;
+  display: flex;
+}
+
+.ts-col-select {
+  width: 5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.ts-col-select .ts-header-col-container {
+  justify-content: space-around;
+}
+
+.ts-col-ts-code {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ts-col-subject {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ts-col-datetime {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ts-col-type {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ts-col-amount {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ts-col-trans-amount {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ts-col-dropdown {
+  width: 5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ts-header-col-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ts-header-col-container p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
+
+  display: flex;
+  align-items: center;
+
+  /* Secondary / Gray 4 */
+
+  color: #6f727a;
+}
+
+.ts-table-rows-container {
+  display: flex;
+  height: fit-content;
+  width: 100%;
+}
+
+.ts-table-row {
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ts-row-content {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  border-radius: 12px;
+}
+
+.ts-row-info-container {
+  width: 100%;
+  height: 80px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  background-color: #2147a8;
+}
+
+.ts-row-info-item {
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+}
+
+#ts-row-info-item-lbl {
+  margin: 0;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 167% */
+
+  /* Secondary / Gray 4 */
+
+  color: white;
+}
+
+#ts-row-info-item-value {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  /* Primary/Black */
+
+  color: white;
+}
+
+.ts-table-page-selector {
+  margin-top: 20px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.ts-ps-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border: 2px solid #e0e2e7;
+  border-radius: 4px;
+}
+
+.ts-ps-container div {
+  padding: 8px;
+  border-right: 2px solid #e0e2e7;
+}
+
+.ts-ps-container div:last-child {
+  border: none;
+}
+
+.ps-pg-item-val {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
