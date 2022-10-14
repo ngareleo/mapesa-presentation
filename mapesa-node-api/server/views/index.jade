@@ -1,0 +1,106 @@
+extend main 
+
+block content
+  link(rel="stylesheet", href="/stylesheets/index.css")
+  div.main-content-container(ng-app="TopDashContainer", ng-controller="MainCtrl as ctrl")
+    div.top-nav-bar-container
+      div.nav-bar-content
+        div.logo-container
+          div.img-container
+            img(src="./static/Navigation-Primary-finance-logo.svg", alt="Finance")
+        div.tab-chooser-container
+          div.tab-containers
+            div.home-tab-container
+              div.tab-chooser-content(ng-class="{active: pageInfo[0].active}", ng-click="changeTab(0)")
+                p#tab-chooser-label(ng-bind="pageInfo[0].label")
+            div.transactions-tab-container
+              div.tab-chooser-content(ng-class="{active: pageInfo[1].active}", ng-click="changeTab(1)")
+                p#tab-chooser-label(ng-bind="pageInfo[1].label")
+            div.analytics-tab-container
+              div.tab-chooser-content(ng-class="{active: pageInfo[2].active}", ng-click="changeTab(2)")
+                p#tab-chooser-label(ng-bind="pageInfo[2].label")
+            div.inbox-tab-container
+              div.tab-chooser-content(ng-class="{active: pageInfo[3].active}", ng-click="changeTab(3)")
+                p#tab-chooser-label(ng-bind="pageInfo[3].label")
+        div.user-profile-container
+          div.user-profile-content
+            div.img-container
+              img(src="/static/Navigation-Primary-profile.png", alt="Username")
+    div.main-body-container(ng-show="pageInfo[0].active")
+      div.main-dash-container
+        div.dash-page-location-container
+          div.dash-location-content
+            p Home
+            img(src="/static/Navigation-Breadcrumbs-chevron_right.svg", alt="")
+            p Dashboard
+        div.dash-top-container
+          div.dash-top-content
+            div.left-combined-info-container
+              div.d-top-container
+                div.d-top-content
+                  p#balance-label Balance
+                  p#balance-amount(ng-bind="balance | currency : '' : 0")
+              div.d-top-container
+                div.d-top-content
+                  p#income-label Income
+                  p#income-amount(ng-bind="income | currency : '' : 0")
+              div.d-top-container
+                div.d-top-content
+                  p#spent-label Spent
+                  p#spent-amount(ng-bind="spent | currency : '' : 0")
+        div.dash-middle-container
+          div.recent-t-table
+            div.t-table-content
+              div.table-header
+                p#header-type.t-type-column Type
+                p#header-subject.subject-column Subject
+                p#header-date.date-column Date
+                p#header-amount.amount-column Amount
+              div.table-body(ng-repeat="transaction in transactions")
+                div.table-row(ng-click="switchInfo(transaction.index)")
+                  div.t-type-column
+                    div.t-type-col-content
+                      div.img-container
+                        p#transaction-symbol(ng-bind="transaction.type")
+                  div.subject-column
+                    div.subject-col-content
+                      p#item-subject-name(ng-bind="transaction.subject.name")
+                      p#item-subject-phonenumber(ng-bind="transaction.subject.subjectID")
+                  div.date-column
+                    div.date-col-content
+                      p#item-date(ng-bind="transaction.date.time")
+                  div.amount-column
+                    div.amount-col-amount
+                      div.col-amount-content.plus(ng-show="transaction.amount.gain")
+                        p#item-amount(ng-bind="transaction.amount.amount")
+                      div.col-amount-content.minus(ng-hide="transaction.amount.gain")
+                        p#item-amount(ng-bind="transaction.amount.amount")
+          div.t-info-container
+            div.info-container-header
+              div.info-subject-name-content
+                p#info-subject-name(ng-bind="tInfoContent.subject")
+              div.info-t-type-content
+                p#info-t-type(ng-bind="tInfoContent.type")
+            div.info-content(ng-repeat="content in tInfoContent.items")
+              div.content
+                p#i_c_title(ng-bind="content.label")
+                p#i_c_value(ng-bind="content.value")
+        div.bottom-analytics-container#bottom-analytics-container
+          div.chart-container
+            div.chart-header
+              p#chart-header Monthly Income
+              div.time-frame-container
+                p#time-frame AUG 2020 - FEB 2021
+            div.chart-bar-container
+              canvas#playground
+    div.main-trans-container(ng-show="pageInfo[1].active")
+      include ./transactions.jade
+  
+  script(src="/javascripts/index.js")
+  script(src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js")
+  script(src="https://cdn.jsdelivr.net/npm/chart.js")
+  script(src="https://unpkg.com/axios/dist/axios.min.js")
+  script(type="text/javascript", src="https://www.gstatic.com/charts/loader.js")
+  script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js")
+  script(src="/javascripts/index.angular.js")
+  script(src="/javascripts/index.charts.js")

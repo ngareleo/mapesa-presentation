@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="/stylesheets/login.css" />
+<div
+  class="main-content-container unloaded"
+  ng-app="LoginModule"
+  ng-controller="LoginCtrl"
+>
+  <div class="login-img-container"></div>
+
+  <div class="login-page-content">
+    <div class="logo-container">
+      <div class="img-container">
+        <img src="/static/Navigation-Primary-finance-logo.svg" alt="Finance" />
+      </div>
+      <div class="img-container">
+        <img src="/static/menu-alt-3.svg" alt="Menu" />
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-greeting">
+          <p id="welcome-message">Welcome</p>
+        </div>
+        <div class="page-login-header">
+          <p id="login-message">Create a new account</p>
+        </div>
+      </div>
+
+      <!--Login form-->
+      <div class="form-container">
+        <form name="loginForm" class="loginForm" method="post" action="/signup">
+          <div class="username-field">
+            <label for="username-field">Username</label>
+            <input
+              type="text"
+              name="username"
+              id="username-field"
+              autocomplete="off"
+              ng-change="changeUsername()"
+              ng-model="userUsername"
+              ng-minlength="4"
+              required
+            />
+          </div>
+
+          <div class="password-field">
+            <label for="password-field">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password-field"
+              ng-model="userPassword"
+              ng-minlength="4"
+              required
+            />
+          </div>
+          <input
+            type="submit"
+            value="Create account"
+            id="login-button"
+            ng-disabled="loginForm.$invalid"
+          />
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script
+  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"
+></script>
+<script src="/javascripts/signup.angular.js"></script>
+<script>
+  window.onload = () => {
+  document.querySelector('.main-content-container.unloaded')
+  document.querySelector('.main-content-container.unloaded').classList.remove('unloaded')
+  }
+</script>
