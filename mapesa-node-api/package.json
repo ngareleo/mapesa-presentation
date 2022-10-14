@@ -33,7 +33,7 @@
     "chai": "^4.3.4",
     "connect-mongo": "^4.6.0",
     "kill-port": "^1.6.1",
-    "mocha": "^9.1.2",
+    "mocha": "^9.2.2",
     "nodemon": "^2.0.15"
   }
 }
