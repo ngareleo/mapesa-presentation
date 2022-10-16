@@ -6,8 +6,14 @@ const morgan = require("morgan");
 const appConfigs = require("./config");
 const viewsDir = path.join(__dirname, "server", "views");
 const app = express();
+const slowDown = require("express-slow-down");
+const speedLimiter = slowDown(appConfigs.speedLimiterConfigs);
+// const rateLimit = require("express-rate-limit");
+// const apiLimiter = rateLimit(
+//   appConfigs.rateLimitConfigs(rateLimit.MemoryStore)
+// );
 
-appConfigs.dbConnection;
+appConfigs.initDbConnection;
 
 //settings
 app.set("views", viewsDir);
@@ -18,6 +24,7 @@ require("./server/boot/auth.boot")();
 require("dotenv").config();
 require("http-errors");
 app.use(require("cors"));
+app.use(speedLimiter);
 app.use(session(appConfigs.sessionConfig));
 app.use(morgan("dev"));
 app.use(express.json(appConfigs.jsonConfig));
