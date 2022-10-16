@@ -6,18 +6,6 @@
 version: 2
 updates:
   - package-ecosystem: "npm" 
-    directory: "/mapesa-node-api" 
-    schedule:
-      interval: "daily"
-
-updates:
-  - package-ecosystem: "pip" 
-    directory: "/mapesa-py-data-api" 
-    schedule:
-      interval: "daily"
-
-updates:
-  - package-ecosystem: "gradle" 
-    directory: "/mapesa-android-app-java" 
+    directory: "/mapesa-web-ui" 
     schedule:
       interval: "daily"
