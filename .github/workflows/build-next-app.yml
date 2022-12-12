@@ -9,8 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     defaults:
-      run: shell
-      working-directory: mapesa-web-ui
+      run:
+        working-directory: ./mapesa-web-ui
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
