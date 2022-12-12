@@ -1,3 +1,3 @@
-# mapesa-web-ui
+# mapesa-presentation
 
-A next JS application code for our web-app
+Repository for our web and  flutter applications
