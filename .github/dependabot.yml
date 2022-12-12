@@ -8,4 +8,9 @@ updates:
   - package-ecosystem: "npm" 
     directory: "/mapesa-web-ui" 
     schedule:
-      interval: "daily"
+      interval: "weekly"
+   
+   - package-ecosystem: "pub" 
+    directory: "/mapesa_flutter_app" 
+    schedule:
+      interval: "weekly"
