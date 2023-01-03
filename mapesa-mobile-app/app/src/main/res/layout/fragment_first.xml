@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/plush_green"
+        android:id="@+id/login_error_banner"
+        android:visibility="invisible"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/object_1"
+                android:src="@drawable/ic_warning_icon"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/object_1"
+                android:id="@+id/login_error_text"
+                android:text="@string/username_and_password_pair_are_incorrect"
+                android:textColor="@color/black"
+                android:fontFamily="@font/ubuntu_medium"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_logo_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_logo"
+            android:src="@drawable/ic_finance_logo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_logo"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:textColor="@color/plush_green"
+            android:text="@string/finance"
+
+            />
+
+    </RelativeLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@id/login_logo_container"
+        android:id="@+id/login_email_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="@color/plush_green"
+        app:startIconDrawable="@drawable/ic_user"
+        app:errorTextColor="@color/error"
+        app:errorTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1.CallSaul"
+        app:errorEnabled="true"
+        app:boxStrokeErrorColor="@color/error"
+        app:endIconMode="clear_text"
+        app:boxStrokeWidth="2dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_email_address"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.CallSaul"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:layout_height="60dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1.CallSaul"
+            android:textColor="@color/black"
+            android:hint="@string/username" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_password_container"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/login_email_container"
+        android:layout_marginTop="20dp"
+        app:errorTextColor="@color/error"
+        app:errorTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1.CallSaul"
+        app:errorEnabled="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:boxStrokeErrorColor="@color/error"
+        app:startIconDrawable="@drawable/ic_pass_key"
+        app:endIconMode="clear_text"
+        app:boxStrokeWidth="2dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.CallSaul"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1.CallSaul"
+            android:hint="@string/password" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@id/login_password_container"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/plush_green"
+        android:fontFamily="@font/ubuntu_medium"
+        android:text="@string/let_s_go"
+        android:textAllCaps="false"
+        android:textColor="@color/black" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:id="@+id/signup_link"
+        android:layout_below="@id/login_button"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/don_t_have_an_account"
+            android:textColor="@color/plush_green"
+            android:fontFamily="@font/ubuntu_mono"
+            android:id="@+id/text_1"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/text_1"
+            android:layout_centerVertical="true"
+            android:text="@string/click_here_to_create_one"
+            android:fontFamily="@font/ubuntu_medium"
+            android:textColor="@color/plush_green"
+            />
+    </RelativeLayout>
+</RelativeLayout>
