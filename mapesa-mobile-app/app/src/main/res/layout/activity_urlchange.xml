@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_bg"
+    tools:context=".URLChange">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/topAppBarContainer"
+        >
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#262626"
+            app:navigationIcon="@drawable/ic_back_icon"
+            app:menu="@menu/top_bar_menu"
+            app:title="Update Path"
+            app:titleTextAppearance="@style/TextAppearance.MaterialComponents.Headline6.CallSaul" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:layout_below="@id/topAppBarContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/http"
+        android:layout_marginStart="40dp"
+        android:textSize="20sp"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/white"
+        android:id="@+id/url_address_header"
+        android:fontFamily="@font/ubuntu_medium"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/url_address_header"
+        android:id="@+id/url_address_field_container"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:boxStrokeColor="@color/black"
+        android:layout_marginStart="40dp"
+        app:errorEnabled="true"
+        app:errorTextColor="@color/error"
+        app:boxStrokeErrorColor="@color/error"
+        app:errorContentDescription="Invalid URL address"
+        app:errorTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1.CallSaul"
+        android:layout_marginEnd="40dp"
+        app:boxStrokeWidth="2dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/url_address_field"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.CallSaul"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:paddingTop="30dp"
+            android:hint="@string/url_address"
+            android:inputType="text"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1.CallSaul" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--
+        <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/port_container"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/url_address_field_container"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidth="2dp">
+
+
+         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/port"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.CallSaul"
+            android:layout_width="match_parent"
+            android:inputType="number"
+            android:paddingTop="30dp"
+            android:layout_height="70dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1.CallSaul"
+            android:hint="@string/port" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+    -->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/url_change_button"
+        android:layout_width="match_parent"
+        android:layout_alignStart="@id/url_address_field_container"
+        android:layout_alignEnd="@id/url_address_field_container"
+        android:layout_height="60dp"
+        android:layout_below="@id/url_address_field_container"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#6A6969"
+        android:fontFamily="@font/ubuntu_medium"
+        app:errorEnabled="true"
+        app:errorTextColor="@color/error"
+        app:boxStrokeErrorColor="@color/error"
+        app:errorContentDescription="Invalid PORT number"
+        android:text="@string/update"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:id="@+id/test_connection_button"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/url_change_button"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#292929"
+        android:fontFamily="@font/ubuntu_medium"
+        android:text="@string/test_connection"
+        android:layout_alignParentEnd="true"
+        android:textSize="10sp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        tools:ignore="SmallSp" />
+</RelativeLayout>

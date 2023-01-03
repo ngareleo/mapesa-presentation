@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Call Saul</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="greeting">Good Afternoon Leo,</string>
+    <string name="Total_header">Total</string>
+    <string name="amount">Ksh 30, 000</string>
+    <string name="last_update">Last Update</string>
+    <string name="_4_days_ago">4 days ago</string>
+    <string name="url">URL</string>
+    <string name="url_value">http://198.168.18.1:3000</string>
+    <string name="refresh">REFRESH</string>
+    <string name="menu">Menu</string>
+    <string name="settings">Settings</string>
+    <string name="log_out">Log out</string>
+    <string name="email">Email</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="let_s_go">Let\'s go</string>
+    <string name="don_t_have_an_account">Don\'t have an account.</string>
+    <string name="click_here_to_create_one">Click here to create one.</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="let_s_get_started">Let\'s get started</string>
+    <string name="log_in">Log in</string>
+    <string name="create_account">Create account</string>
+    <string name="http">http://</string>
+    <string name="url_address">URL address</string>
+    <string name="port">Port</string>
+    <string name="update">Update</string>
+    <string name="test_connection">Test connection</string>
+    <string name="username">Username</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="you_are_being_authenticated">You are being authenticated....</string>
+    <string name="seems_like_you_re_offline">Seems like you\'re offline</string>
+    <string name="finance">Finance</string>
+    <string name="username_and_password_pair_are_incorrect">Username and Password pair are incorrect</string>
+    <string name="upload_2">UPLOAD</string>
+    <string name="not_there_yet">Not there yet</string>
+    <string name="oops_looks_like_there_is_a_problem">Oops! looks like there is a problem</string>
+    <string name="uploading_20_messages">Uploading 20 messages</string>
+</resources>

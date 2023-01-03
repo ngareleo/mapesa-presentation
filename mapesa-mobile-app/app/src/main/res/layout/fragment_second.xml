@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/login_title"
+        android:text="@string/create_account"
+        android:textColor="@color/white"
+        android:fontFamily="@font/ubuntu_medium"
+        android:textSize="20sp"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/login_title"
+        android:id="@+id/email_address_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="@color/black"
+        app:startIconDrawable="@drawable/ic_email_icon"
+        app:boxStrokeWidth="2dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_address"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.CallSaul"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1.CallSaul"
+            android:inputType="textEmailAddress"
+            android:hint="@string/email_address" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_container"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/email_address_container"
+        android:layout_marginTop="20dp"
+        app:startIconDrawable="@drawable/ic_pass_key"
+        app:boxStrokeWidth="2dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.CallSaul"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:inputType="textPassword"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1.CallSaul"
+            android:hint="@string/password" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/confirm_password_container"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/password_container"
+        android:layout_marginTop="20dp"
+        app:startIconDrawable="@drawable/ic_pass_key"
+        app:boxStrokeWidth="2dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/confirm_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.CallSaul"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:inputType="textPassword"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1.CallSaul"
+            android:hint="@string/confirm_password" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signup_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/confirm_password_container"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#6A6969"
+        android:fontFamily="@font/ubuntu_medium"
+        android:text="@string/let_s_get_started"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:id="@+id/signIn_link"
+        android:layout_below="@id/signup_button"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/already_have_an_account"
+            android:textColor="@color/white"
+            android:fontFamily="@font/ubuntu_mono"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+</RelativeLayout>
