@@ -2,6 +2,7 @@ import 'dart:core';
 
 import 'package:dio/dio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:mapesa/secrets.dart';
 import 'package:mapesa/src/utils/patterns.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -25,7 +26,7 @@ class UploadService {
 
   UploadService() {
     dio.options
-      ..baseUrl = "https://e28a-41-84-131-94.ngrok.io/"
+      ..baseUrl = uploadEndPoint
       ..connectTimeout = 100000;
 
     dio.interceptors.add(InterceptorsWrapper(onError: (DioError e, handler) {
