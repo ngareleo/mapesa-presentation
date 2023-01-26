@@ -2,6 +2,7 @@
           package="com.example.mapesa_flutter_app">
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
             android:label="mapesa_flutter_app"
             android:name="${applicationName}"
