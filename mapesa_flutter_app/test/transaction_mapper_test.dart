@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mapesa/src/features/message_upload.dart';
+import 'package:mapesa/src/features/upload/mapper.dart';
 import 'package:mapesa/src/models/transactions/airtime_transaction.dart';
 import 'package:mapesa/src/models/transactions/deposit_transaction.dart';
 import 'package:mapesa/src/models/transactions/fuliza_transaction.dart';

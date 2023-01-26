@@ -1,4 +1,4 @@
-import '../models/transactions/transaction.dart';
+import '../../models/transactions/transaction.dart';
 
 class Patterns {
   static final _patterns = {
