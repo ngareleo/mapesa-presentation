@@ -1,5 +1,8 @@
-import 'package:Mapesa/src/features/message_handler.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sms_inbox/flutter_sms_inbox.dart';
+import 'package:mapesa/src/features/message_handler.dart';
+
+import 'features/message_upload.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,8 +16,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  MessageHandler messageHandler = MessageHandler();
-
   @override
   void initState() {
     super.initState();
@@ -24,29 +25,57 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
-        body: Container(
-          padding: const EdgeInsets.all(10.0),
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: messageHandler._messages.length,
-            itemBuilder: (BuildContext context, int i) {
-              var message = _messages[i];
-
-              return ListTile(
-                title: Text('${message.sender} [${message.date}]'),
-                subtitle: Text('${message.body} ${message.id}'),
-              );
-            },
+          appBar: AppBar(
+            title: const Text('Plugin example app'),
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () async {},
-          child: const Icon(Icons.refresh),
-        ),
-      ),
+          body: const Center(
+            child: TransactionList(),
+          )),
+    );
+  }
+}
+
+class TransactionList extends StatefulWidget {
+  const TransactionList({Key? key}) : super(key: key);
+
+  @override
+  State<TransactionList> createState() => _TransactionListState();
+}
+
+class _TransactionListState extends State<TransactionList> {
+  MessageHandler messageHandler = MessageHandler();
+  late Future<List<SmsMessage>> messages;
+  UploadService uploadService = UploadService();
+
+  @override
+  void initState() {
+    super.initState();
+    messages = messageHandler.fetchMessages();
+    uploadService.uploadMessages();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(10.0),
+      child: FutureBuilder(
+          future: messages,
+          builder: (context, AsyncSnapshot<List<SmsMessage>> snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                shrinkWrap: true,
+                itemCount: snapshot.data?.length,
+                itemBuilder: (BuildContext context, int i) {
+                  var message = snapshot.data?.elementAt(i);
+                  return ListTile(
+                    title: Text('${message?.sender} [${message?.date}]'),
+                    subtitle: Text('${message?.body} ${message?.id}'),
+                  );
+                },
+              );
+            }
+            return const CircularProgressIndicator();
+          }),
     );
   }
 }
