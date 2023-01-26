@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mapesa/src/features/upload/patterns.dart';
 import 'package:mapesa/src/models/transactions/airtime_transaction.dart';
 import 'package:mapesa/src/models/transactions/deposit_transaction.dart';
 import 'package:mapesa/src/models/transactions/fuliza_transaction.dart';
@@ -8,7 +9,6 @@ import 'package:mapesa/src/models/transactions/receive_money_transaction.dart';
 import 'package:mapesa/src/models/transactions/send_money_transaction.dart';
 import 'package:mapesa/src/models/transactions/transaction.dart';
 import 'package:mapesa/src/models/transactions/withdraw_transaction.dart';
-import 'package:mapesa/src/utils/patterns.dart';
 
 import 'messages.dart';
 
