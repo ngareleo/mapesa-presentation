@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../models/transactions/transaction.dart' as mpesa_transaction;
@@ -10,8 +11,29 @@ class FirebaseUploadService {
 
   Future<bool> batchWriteToFirebase(
       {required List<mpesa_transaction.Transaction?> transactions}) async {
+    var transactionCount = transactions.length;
+    var uploadedTransactions = 0;
+
+    while (uploadedTransactions < transactionCount) {
+      var chunkEnd =
+          uploadedTransactions + FirebaseUploadService.firebaseBatchSize;
+      debugPrint("Batch from $uploadedTransactions to $chunkEnd");
+      var uploadedSuccessfully = await writeBatch(transactions
+          .getRange(uploadedTransactions,
+              chunkEnd <= transactionCount ? chunkEnd : transactionCount)
+          .toList());
+      if (!uploadedSuccessfully) {
+        return false;
+      }
+      uploadedTransactions += FirebaseUploadService.firebaseBatchSize;
+    }
+    return true;
+  }
+
+  Future<bool> writeBatch(
+      List<mpesa_transaction.Transaction?> transactions) async {
     final batch = db.batch();
-    for (var transaction in transactions) {
+    for (var transaction in transactions.toList()) {
       var transactionRef =
           db.collection("transactions").doc(transaction?.transactionCode);
       batch.set(transactionRef, transaction?.toJson());
@@ -21,7 +43,6 @@ class FirebaseUploadService {
     } catch (error) {
       return false;
     }
-
     return true;
   }
 }

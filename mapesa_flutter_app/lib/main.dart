@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sms_inbox/flutter_sms_inbox.dart';
+import 'package:mapesa/src/features/authentication/user_handler.dart';
 import 'package:mapesa/src/features/message_handler.dart';
+import 'package:mapesa/src/pages/login.dart';
 
 import 'firebase_options.dart';
 import 'src/features/upload/message_upload.dart';
@@ -22,22 +24,41 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  bool isSignedIn = false;
+  UserHandler userHandler = UserHandler();
+
   @override
   void initState() {
     super.initState();
+    isSignedIn = userHandler.isSignedIn();
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            title: const Text('Mapesa'),
-          ),
-          body: const Center(
-            child: TransactionList(),
-          )),
+      title: "Mapesa",
+      home: isSignedIn ? const HomePage() : const LoginScreen(),
     );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Leo\'s app'),
+        ),
+        body: const Center(
+          child: TransactionList(),
+        ));
   }
 }
 
