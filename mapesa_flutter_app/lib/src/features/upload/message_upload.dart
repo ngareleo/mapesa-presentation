@@ -8,6 +8,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../message_handler.dart';
 import 'mapper.dart';
 
+enum MessageType {
+  upToDate(message: "Up to date"),
+  success(message: "Upload successfully"),
+  error(message: "Upload failed");
+
+  final String message;
+
+  const MessageType({required this.message});
+}
+
 class UploadService {
   // get the messages
   final MessageHandler messageHandler = MessageHandler();
@@ -33,39 +43,26 @@ class UploadService {
   Future<void> uploadMessages() async {
     var transactions = await getTransactions();
     if (transactions.isEmpty) {
-      Fluttertoast.showToast(
-        msg: "Up to date!",
-        toastLength: Toast.LENGTH_LONG,
-      );
+      showToast(messageType: MessageType.upToDate);
       return;
     }
-
-    var hasUploadedSuccessfully =
-        await firebaseUploadService.batchWriteToFirebase(
-            transactions: transactions.getRange(0, 100).toList());
-
-    hasUploadedSuccessfully
-        ? Fluttertoast.showToast(
-            msg: "Transactions uploaded to Firebase successfully",
-            toastLength: Toast.LENGTH_LONG,
-          )
-        : Fluttertoast.showToast(
-            msg: "Transactions upload to Firebase failed",
-            toastLength: Toast.LENGTH_LONG,
-          );
+    var uploadComplete = await firebaseUploadService.batchWriteToFirebase(
+        transactions: transactions);
+    if (!uploadComplete) {
+      showToast(messageType: MessageType.error);
+      return;
+    } else {
+      showToast(messageType: MessageType.success);
+      var prefs = await SharedPreferences.getInstance();
+      var latestID = transactions.first?.messageId;
+      prefs.setInt("latest_id", latestID!);
+    }
   }
 
-  void showUploadStatus({required bool hasUploaded}) {
-    if (hasUploaded) {
-      Fluttertoast.showToast(
-        msg: "Uploaded",
-        toastLength: Toast.LENGTH_LONG,
-      );
-    } else {
-      Fluttertoast.showToast(
-        msg: "Failed",
-        toastLength: Toast.LENGTH_LONG,
-      );
-    }
+  void showToast({required MessageType messageType}) {
+    Fluttertoast.showToast(
+      msg: messageType.message,
+      toastLength: Toast.LENGTH_LONG,
+    );
   }
 }

@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-            android:label="mapesa_flutter_app"
+            android:label="Mapesa"
             android:name="${applicationName}"
             android:icon="@mipmap/ic_launcher">
         <activity
